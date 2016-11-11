@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Color Filter</title>
+		<script src="/node_modules/angular/angular.js" charset="utf-8"></script>
+		<script src="main.js" charset="utf-8"></script>
+	</head>
+
+	<body ng-app="myColorApp">
+		<h1>Welcome to the color search website!</h1>
+		<p>Enter any portion of a color, hexcode or RGB color.</p>
+		<div ng-controller="MainController">
+			<p>Search Colors: <input type="text" ng-model="filter_name"></p>
+
+			<table style="width:50%">
+				<tr>
+					<th>Color Name</th>
+					<th>Hex Code</th>
+					<th>RGB</th>
+				</tr>
+			
+				<tr ng-repeat="color in colors | filter : filter_name">
+					<td bgcolor="{{color.hex}}" align="middle">{{color.name}}</td>
+					<td bgcolor="{{color.hex}}" align="middle">{{color.hex}}</td>
+					<td bgcolor="{{color.hex}}" align="middle">{{color.rgb}}</td>
+				</tr>
+			</table>
+			
+		</div>
+	</body>
+</html>
